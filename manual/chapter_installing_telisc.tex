@@ -26,6 +26,23 @@ Once the iso file is downloaded, it can be installed offline. The installation p
 
 First you have to create \textit{Boot Disk}. If you don't know what The boot disk is then take your time and read the following section where we describe details about \textit{Boot Disk} and installation process.  
 
+\section{The Boot Disks}
+For installing TeLiSc OS you have to run its utility program. 
+
+\section{Creating Boot}
+
+\subsection{Using Windows Interface}
+
+\subsection{Using Mac Interface}
+
+\subsection{Using Linux Interface}
+Then burn the ISO into a pen-drive. You can do that using the dd command from any linux distribution. The command is like this-
+
+\begin{svgraybox}
+\$sudo dd \bs=4M if=path/to/the/iso of=path/to/the/pendrive  (usually /dev/sdb)
+\end{svgraybox}
+
+
 \section{Partitions}
 
 \label{sec:2.2}
@@ -39,21 +56,81 @@ If you are installing TeLiSc OS on a machine which have 1GB RAM or less, then \t
 There is no boundary limit for swap partition size. But the size of swap partition normally be same as RAM or half of it. For example if your machine have 4GB RAM the your swap partition should be 2GB or maximum 4GB not required more than that.
 
 Following steps will help you to create a swap partition on your machine. 
+
+\begin{svgraybox}
 \begin{itemize}
     \item First create a partition of your desired size using \$ cfdisk .
     \item Format the swap using \$ mkswap /dev/sdXY
     \item Activate swap using \$ swapon /dev/sdXY
 \end{itemize}
 Here X \& Y could be different for you.(EX: sda4)
+\end{svgraybox}
 
 \section{Installation script}
 You done all necessary things for installing TeLiSc OS on your machine. Now you have to run a script which has already written by TeLiSc developer that will complete the remaining installation process for you. The installation script is in your home directory. To run this script follow the following steps-
+
+\begin{svgraybox}
 \begin{itemize}
     \item open terminal by pressing \textit{win key + enter}
     \item go to home directory by \$ cd command
     \item run the script by \$ .tinstall  command  
 \end{itemize}
 you're done! Welcome to TeLiSc OS!
+
+\end{svgraybox}
+
+\section{After Installation}
+After installation 
+
+\subsection{Enable Network Manager}
+Internet connection is the top priority after completion of setup because for getting update or installing user desired software packages we will need internet. So, for enabling your machine's network connection follow the following steps:
+
+\begin{svgraybox}
+
+\begin{enumerate}
+    \item \$ sudo systemctl start NetworkManager.service
+    \item \$ sudo systemctl enable NetworkManager.service
+\end{enumerate}
+ 
+\end{svgraybox}
+Now your network manager is enabled. You can now configure your connection by the following command-
+
+\begin{svgraybox}
+ $$ \$ sudo \indent nmtui $$
+\end{svgraybox}
+
+ \subsection{Update and upgrade Pacman repository }
+ Do this by commanding-
+ 
+\begin{svgraybox}
+\begin{center}
+ \$ sudo pacman –Syu   
+\end{center} 
+\end{svgraybox}
+
+
+\subsection{User & User Group}
+
+
+\section{Moving Around In Your New System}
+
+\subsection{Changing the Host Name}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Installing Software}
+You already got your new desktop environment. But there is not all required software packages you need. We put basic scientific software packages. So if you want to install your desire software or software packages you can do it in a jiffy by commanding couple of words.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Uninstall Software}
+
+
+
+
+
+
 
 
 
